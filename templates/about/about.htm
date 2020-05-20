@@ -1,0 +1,161 @@
+{% extends 'base.htm' %} {% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  {% block head %}
+  <title>About | Find Out More About What We Do</title>
+  <link rel="stylesheet" href="{% static 'about/style.css' %}" />
+
+  <meta name="description" content="If you have any enquiries or want to become a speaker, then send us a message" />
+  <meta name="keywords" content="Islamic, islamic education, islamic avout, avout, islamic aid, educational " />
+  {% endblock %}
+</head>
+
+<body>
+  {% block content %}
+  <div class="container">
+    <div class="s1">
+      <h2>Teaching Is Our Main Focus</h2>
+      <p>
+        Every muslim has a right to seek and obtain knowledge
+      </p>
+    </div>
+
+    <div class="s2">
+      <div class="knowledge">
+        <div class="text">
+          <h3>Knowledge Is Power</h3>
+          <p>
+            The core purpose of this website is to give people knowledge to
+            our religion. After all the more knowledge you get, the more of an
+            understanding you will also have. A knowledgeable person will not
+            just understand but know the meaning which is most powerful.
+          </p>
+        </div>
+
+        <img src="{% static 'about/imgs/quran.jpg' %}" alt="Knowledge" class="s2-images" />
+      </div>
+
+      <div class="faith">
+        <div class="text">
+          <h3>Faith</h3>
+          <p>
+            Faith is essential to every muslim and to build that faith one
+            must educate themselves. {name} is the platform where you can get
+            this information and find more of islam than you ever can anywhere
+            else.
+          </p>
+        </div>
+
+        <img src="{% static 'about/imgs/faith.jpg' %}" alt="Faith" class="s2-images right-img" />
+      </div>
+
+      <div class="poor">
+        <div class="text">
+          <h3>Poor</h3>
+          <p>
+            We help the poor from every donation that is given to us through
+            the website or in our masjid. We host events and charities to
+            further raise awareness of the poor in our community and all
+            around the world.
+          </p>
+        </div>
+
+        <img src="{% static 'about/imgs/poor.jpg' %}" alt="Poor" class="s2-images" />
+      </div>
+    </div>
+
+    <div class="s4">
+      <h2 class="more">More About Us</h2>
+
+      <div class="about-container">
+        <div class="text">
+          <p>
+            et malesuada fames ac turpis egestas sed tempus urna et pharetra
+            pharetra massa massa ultricies mi quis hendrerit dolor magna eget
+            est lorem ipsum dolor sit amet consectetur adipiscing elit
+            pellentesque habitant morbi tristique senectus et netus et
+            malesuada fames
+          </p>
+        </div>
+
+        <img src="{% static 'about/imgs/about.jpg' %}" alt="About" class="s2-images" />
+      </div>
+
+      <div class="values">
+        <div class="charity">
+          <img src="{% static 'about/imgs/charity.svg' %}" alt="Charity" class="charity-img" />
+          <p class="charity-text">Charity</p>
+        </div>
+
+        <div class="teach">
+          <img src="{% static 'about/imgs/teach.svg' %}" alt="Teach" class="teach-img" />
+          <p class="teach-text">Teach</p>
+        </div>
+
+        <div class="feedback">
+          <img src="{% static 'about/imgs/feedback.svg' %}" alt="Feedback" class="feedback-img" />
+          <p class="feedback-text">Feedback</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="s5">
+      <div class="s5-container">
+        <h2>Recent Work</h2>
+
+        <div class="work-container">
+          {% for item in charity %}
+          <div class="work">
+            <img src="{{ item.img.url }}" alt="Work" class="work-img" />
+            <p class="work-text">{{ item.title|title }}</p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div class="s3">
+      <h2>Latest News</h2>
+
+      {% for object in objects %}
+      <div class="latest">
+        <div class="latest-grid">
+          <img src="{{ object.img.url }}" alt="Latest Img" class="latest-img" />
+          <div>
+            <h3 class="latest-date">
+              {{ object.date }}<small class="latest-month" style="margin-left: 15px;">{{ object.month }}</small>
+            </h3>
+
+            <div class="latest-info">
+              <h3 class="latest-title">{{ object.title }}</h3>
+              <p class="latest-desc">{{ object.desc }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="s6">
+      <h3 class="copyright">Copyright &copy; 2020 - name</h3>
+      <h3 class="fontawesome">fontawesome Fonts</h3>
+      <ul>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'policy' %}" class="list-pad">Policy</a></li>
+        <li><a href="{% url 'disclaimer' %}" class="list-pad">Disclaimer</a></li>
+        <li><a href="" class="list-pad">FAQ</a></li>
+        <li><a href="{% url 'contact' %}" class="list-pad">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="{% static 'about/app.js' %}"></script>
+  {% endblock %}
+</body>
+
+</html>

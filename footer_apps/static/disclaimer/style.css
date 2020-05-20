@@ -1,0 +1,157 @@
+.s1 {
+  width: 100%;
+  margin-top: 115px;
+}
+
+.diclaimer-container {
+  border: solid 3px yellow;
+  width: 85%;
+  margin: 0 auto;
+  background: #f6f4f4;
+  border: 1px solid #c7c3c3;
+}
+
+.header {
+  margin-left: 25px;
+  margin-top: 15px;
+}
+
+.bullet {
+  margin-left: 40px;
+  margin-top: 12px;
+
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.last {
+  margin-bottom: 15px;
+}
+
+.s6 {
+  width: 100%;
+  position: relative;
+  top: 100px;
+  height: 183px;
+  padding-top: 2px;
+
+  background: #2c2c2c;
+}
+
+.s6 ul li a {
+  font-size: 14px;
+  line-height: 21px;
+
+  color: #ffffff;
+}
+
+.s6 ul li {
+  display: inline-block;
+  /* padding-left: 25px; */
+}
+
+.s6 ul {
+  width: 60%;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.fontawesome {
+  margin-top: 20px;
+  color: #fff;
+  width: 100%;
+  text-align: center;
+}
+
+.copyright {
+  color: #fff;
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.list-pad {
+  padding-left: 15px;
+}
+
+@media screen and (min-width: 950px) {
+  .s1 {
+    width: 100%;
+    margin-top: 115px;
+  }
+
+  .diclaimer-container {
+    border: solid 3px yellow;
+    width: 90%;
+    margin: 0 auto;
+    background: #f6f4f4;
+    border: 1px solid #c7c3c3;
+  }
+
+  .header {
+    margin-left: 45px;
+    font-size: 48px;
+    margin-top: 35px;
+  }
+
+  .bullet {
+    margin-left: 80px;
+    width: 85%;
+    margin-top: 22px;
+    font-size: 24px;
+    line-height: 36px;
+
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .last {
+    margin-bottom: 45px;
+  }
+
+  .s6 {
+    width: 100%;
+    position: relative;
+    top: 250px;
+    height: 183px;
+    padding-top: 2px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: #2c2c2c;
+  }
+
+  .s6 ul li a {
+    font-size: 16px;
+    line-height: 21px;
+
+    color: #ffffff;
+  }
+
+  .s6 ul {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 30px;
+  }
+
+  .fontawesome {
+    margin-top: 20px;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+  }
+
+  .copyright {
+    color: #fff;
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+  }
+
+  .list-pad {
+    padding-left: 15px;
+  }
+}

@@ -1,0 +1,25 @@
+// Latest Episodes
+
+// Main Topics
+
+// Commuity
+
+Latest Episode:
+  - Filter by newest
+  - Episode Name
+  - Episode Author
+  - NOT THE ROOT
+
+Main Topics:
+  - Filter by category
+  - Episode Name
+  - Small Episode Detail
+  - Img (blank=True)
+  - NOT THE ROOT
+
+Commuity:
+  - Form
+  - Retrieve Email
+  - Retrieve Name
+  - Save To DB
+  - ROOT

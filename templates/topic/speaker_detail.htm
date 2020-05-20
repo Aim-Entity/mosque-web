@@ -1,0 +1,99 @@
+{% extends 'base.htm' %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  {% block head %}
+  <title>Speakers</title>
+  <link rel="stylesheet" href="{% static 'speaker_detail/style.css' %}" />
+
+  <meta name="description" content="Watch new chapters from speakers." />
+  <meta name="keywords" content="Islamic, islamic education, islamic topics, topics, islamic aid, educational, " />
+  {% endblock %}
+</head>
+
+<body>
+  {% block content %}
+  <div class="containers">
+    <div class="s1">
+      <h2>Visit Your Favourite Speakers</h2>
+      <p>
+        Support your favourite speakers by following them on their social media
+      </p>
+    </div>
+
+    <div class="s2">
+      <div class="author">
+        <div class="author-details">
+          <img src="{{ speaker.profile.url }}" alt="Author" class="author-img">
+
+          <img src="{% static 'speaker_detail/imgs/arrow_right.svg' %}" alt="Arrow" class="arrow-right">
+          <div class="info">
+            <h2 class="topic-name">{{ speaker.topic.small_title }}</h2>
+            <p class="topic-desc">{{ speaker.topic.small_desc }}</p>
+          </div>
+          <p class="author-name">{{ speaker.name }}</p>
+        </div>
+
+        <aside class="author-social">
+          <div class="inner-social">
+            <img src="{% static 'speaker_detail/imgs/arrow_left.svg' %}" alt="Arrow" class="arrow-left">
+
+            <fieldset>Sidebar</fieldset>
+
+            <div class="social">
+              <a href="{{ speaker.facebook }}" target="_blank"><img
+                  src="{% static 'speaker_detail/imgs/facebook.svg' %}" alt="Facebook" class="facebook icons"></a>
+              <a href="{{ speaker.twitter }}" target="_blank"><img src="{% static 'speaker_detail/imgs/twitter.svg' %}"
+                  alt="Twitter" class="twitter icons"></a>
+              <a href="mailto:{{ speaker.email }}" target="_blank"><img
+                  src="{% static 'speaker_detail/imgs/email.svg' %}" alt="Email" class="email icons"></a>
+            </div>
+
+            <p class="their_email">Email - {{ speaker.email }}</p>
+            <p class="phone"></p>
+
+            <p class="support">Show your support to these creators by visiting their social medias and thanking them.
+            </p>
+          </div>
+        </aside>
+      </div>
+
+      <div class="s3">
+        {% for chapter in speaker.topic.chapter_set.all %}
+        <div class="chapter-container">
+          <h3 class="chapter">{{ chapter|title }}</h3>
+          <p class="date">{{ chapter.pub_date }}</p>
+          <a href="{% url 'chapter-detail' chapter.id %}"><button class="visit btn">Visit</button></a>
+        </div>
+        {% endfor %}
+      </div>
+
+      <div class="s6">
+        <h3 class="copyright">Copyright &copy; 2020 - name</h3>
+        <h3 class="fontawesome">fontawesome Fonts</h3>
+        <ul>
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'policy' %}" class="list-pad">Policy</a></li>
+          <li><a href="{% url 'disclaimer' %}" class="list-pad">Disclaimer</a></li>
+          <li><a href="" class="list-pad">FAQ</a></li>
+          <li><a href="{% url 'contact' %}" class="list-pad">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TimelineLite.min.js"
+      integrity="sha256-5HW1hilN77unDg9wwY2mmXL1G8/hBMrYOgiB+BqsxNg=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/plugins/CSSPlugin.min.js"
+      integrity="sha256-UJt5JHwfrhok9SvTqbi6rRw2ajY0ugeYsIT2pioVDJY=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenLite.min.js"
+      integrity="sha256-VfpswwlYKouVmlpnJW0MszMzLm9lH2yfB6ty3d1WsB4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js"
+      integrity="sha256-hBMojZuWKocCflyaG8T19KBq9OlTlK39CTxb8AUWKhY=" crossorigin="anonymous"></script>
+    <script src="{% static 'speaker_detail/app.js' %}"></script>
+    {% endblock %}
+</body>
+
+</html>

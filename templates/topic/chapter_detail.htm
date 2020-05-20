@@ -1,0 +1,53 @@
+{% extends 'base.htm' %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  {% block head %}
+  <title>Chapter | Stay Educated Through Our Website</title>
+  <link rel="stylesheet" href="{% static 'chapter_detail/style.css' %}" />
+
+  <meta name="description"
+    content="Make sure to stay educated on islam to know the true meaning of this beutiful religion." />
+  <meta name="keywords" content="Islamic, islamic education, islamic chapters, chapters, islamic aid, educational " />
+  {% endblock %}
+</head>
+
+<body>
+  {% block content %}
+  <div class="container">
+    <div class="s1">
+      <video poster="{{ chapter.thumbnail.url }}" controls src="{{ chapter.video.url }}" width="100"></video>
+
+      <h3 class="title">{{ chapter.title|title }}</h3>
+
+      <div class="side-info">
+        <p class="name">{{ chapter.author.name }}</p>
+        <p class="date">{{ chapter.pub_date }}</p>
+      </div>
+
+      <hr class="line line1" />
+      <p class="desc">{{ chapter.desc }}</p>
+      <hr class="line line2" />
+    </div>
+
+    <div class="s6">
+      <h3 class="copyright">Copyright &copy; 2020 - name</h3>
+      <h3 class="fontawesome">fontawesome Fonts</h3>
+      <ul>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'policy' %}" class="list-pad">Policy</a></li>
+        <li><a href="{% url 'disclaimer' %}" class="list-pad">Disclaimer</a></li>
+        <li><a href="" class="list-pad">FAQ</a></li>
+        <li><a href="{% url 'contact' %}" class="list-pad">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="{% static 'chapter_detail/app.js' %}"></script>
+  {% endblock %}
+</body>
+
+</html>

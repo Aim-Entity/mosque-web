@@ -1,0 +1,92 @@
+{% extends 'base.htm' %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  {% block head %}
+  <title>Topic | All The Religous Topics</title>
+  <link rel="stylesheet" href="{% static 'topic/style.css' %}" />
+
+  <meta name="description"
+    content="Visit our topic section with hundreds of islamic quotes and speakers to listen from. Download these resources to always listen to on your phone or free time." />
+  <meta name="keywords" content="Islamic, islamic education, islamic topics, topics, islamic aid, educational, " />
+  {% endblock %}
+</head>
+
+<body>
+  {% block content %}
+  <div class="container">
+    <div class="s1">
+      <h2>Browse Through Our Topics</h2>
+      <p>
+        Watch hundreds of chapters all related to a topic
+      </p>
+
+      <div class="form-container">
+        <form method="GET">
+          {% csrf_token %}
+          <div class="form">
+            {{ filter.form }}
+
+            <button type="submit" class="submit">
+              <img src="{% static 'topic/imgs/mag.svg' %}" alt="mag" class="mag" />
+            </button>
+          </div>
+        </form>
+      </div>
+      <!-- Search -->
+    </div>
+
+    <div class="s2">
+      <div class="whole-object-container">
+        {% for topic in filter.qs %}
+        <div class="topic-container">
+          <div class="title-container">
+            <img src="{% static 'topic/imgs/carpet.svg' %}" alt="Carpet" class="carpet" />
+            <h3 class="title">{{ topic.small_title }}</h3>
+          </div>
+
+          <div class="slider">
+            <div class="content-container">
+              <ul>
+                {% for chapters in topic.chapter_set.all %}
+                <li>
+                  <a href="{% url 'chapter-detail' chapters.id %}">{{ chapters }}</a>
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="s6">
+    <h3 class="copyright">Copyright &copy; 2020 - name</h3>
+    <h3 class="fontawesome">fontawesome Fonts</h3>
+    <ul>
+      <li><a href="{% url 'about' %}">About</a></li>
+      <li><a href="{% url 'policy' %}" class="list-pad">Policy</a></li>
+      <li><a href="{% url 'disclaimer' %}" class="list-pad">Disclaimer</a></li>
+      <li><a href="" class="list-pad">FAQ</a></li>
+      <li><a href="{% url 'contact' %}" class="list-pad">Contact</a></li>
+    </ul>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TimelineLite.min.js"
+    integrity="sha256-5HW1hilN77unDg9wwY2mmXL1G8/hBMrYOgiB+BqsxNg=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/plugins/CSSPlugin.min.js"
+    integrity="sha256-UJt5JHwfrhok9SvTqbi6rRw2ajY0ugeYsIT2pioVDJY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenLite.min.js"
+    integrity="sha256-VfpswwlYKouVmlpnJW0MszMzLm9lH2yfB6ty3d1WsB4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js"
+    integrity="sha256-hBMojZuWKocCflyaG8T19KBq9OlTlK39CTxb8AUWKhY=" crossorigin="anonymous"></script>
+  <script src="{% static 'topic/app.js' %}"></script>
+  {% endblock %}
+</body>
+
+</html>

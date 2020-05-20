@@ -1,0 +1,197 @@
+{% extends 'base.htm' %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  {% block head %}
+  <title>Home | Be Part Of Our Islamic Community And Learn More Of Our Religion</title>
+  <link rel="stylesheet" href="{% static 'home/style.css' %}" />
+
+  <meta name="description"
+    content="We give valuable information and knowledge all about islam and many other religion." />
+  <meta name="keywords" content="Islamic, islamic education, islamic home, home, islamic aid, educational, charity" />
+  {% endblock %}
+</head>
+
+<body>
+  {% block content %}
+  <div class="container">
+    <div class="s1">
+      <img src="{% static 'home/imgs/new_home.jpg' %}" alt="Mosque" class="cover" />
+
+      <h1>Gateway To Knowledge</h1>
+      <p>"{{ home.quote }}" - <small> {{ home.quote_author }}</small></p>
+
+      <a href="#scroll" class="drop-a"><img src="{% static 'home/imgs/drop.svg' %}" alt="Drop" class="drop" /></a>
+    </div>
+
+    <div class="s2">
+      <h2>Watch Our Latest Episodes</h2>
+      <p class="accent slogan">The human mind is our fundamental resource</p>
+
+      <div class="topic-container">
+        {% for new in latest %}
+        <div class="topic">
+          <a href="{% url 'chapter-detail' new.id%}">
+            <p class="topic-name accent">
+              {{ new.title }}
+            </p>
+          </a>
+          <p class="author">{{new.author}}</p>
+        </div>
+        {% endfor %}
+        <!-- <div class="topic">
+            <p class="topic-name accent">
+              This is the max charachter it should be
+            </p>
+            <p class="author">Author</p>
+          </div>
+
+          <div class="topic">
+            <p class="topic-name accent">
+              This is the max charachter it should be
+            </p>
+            <p class="author">Author</p>
+          </div>
+
+          <div class="topic">
+            <p class="topic-name accent">
+              This is the max charachter it should be
+            </p>
+            <p class="author">Author</p>
+          </div> -->
+      </div>
+    </div>
+
+    <div class="s3" id="scroll">
+      <h2>Hot Topics</h2>
+      <p class="slogan accent">The human mind is our fundamental resource</p>
+
+      <div class="boxes">
+        <div class="box b1">
+          <div class="details">
+            <div class="number">
+              <h4>01</h4>
+            </div>
+
+            <h3>{{ topic1.small_title|title }}</h3>
+            <p class="box-desc">
+              {{ topic1.small_desc }}
+            </p>
+
+            <hr />
+          </div>
+
+          {% for author in topic1.author_set.all %}
+          <img src="{{ author.profile.url }}" alt="Topic-Img" style="width: 110px; height: 218px; object-fit: cover;" />
+          {% endfor %}
+        </div>
+
+        <div class="box b2">
+          <div class="details">
+            <div class="number">
+              <h4>02</h4>
+            </div>
+
+            <h3>{{ topic2.small_title|title }}</h3>
+            <p class="box-desc">
+              {{ topic2.small_desc }}
+            </p>
+
+            <hr />
+          </div>
+          {% for author in topic2.author_set.all %}
+          <img src="{{ author.profile.url }}" alt="Topic-Img" />
+          {% endfor %}
+        </div>
+
+        <div class="box b3">
+          <div class="details">
+            <div class="number">
+              <h4>03</h4>
+            </div>
+
+            <h3>{{ topic3.small_title|title }}</h3>
+            <p class="box-desc">
+              {{ topic3.small_desc }}
+            </p>
+
+            <hr />
+          </div>
+          {% for author in topic3.author_set.all %}
+          <img src="{{ author.profile.url }}" alt="Topic-Img" style="width: 110px; height: 218px; object-fit: cover;" />
+          {% endfor %}
+        </div>
+      </div>
+
+      <a href="{% url 'topic' %}"><button class="more-topics btn">More Topics</button></a>
+    </div>
+
+    <div class="s4">
+      <img src="{% static 'home/imgs/sky.jpg' %}" alt="Cover" class="testimonial-cover" />
+
+      <h2>Testimonial</h2>
+      <p class="slogan accent sg">
+        The human mind is our fundamental resource
+      </p>
+
+      <div class="person-one">
+        <p class="quote1">
+          "{{ home.testimonial }}"
+        </p>
+
+        {% if home.testimonial_country %}
+        <p class="author1">
+          {{ home.testimonial_role }}, {{ home.testimonial_name }} -
+          <small>{{ home.testimonial_country }}</small>
+        </p>
+
+        {% else %}
+        <p class="author1">
+          {{ home.testimonial_role }} - {{ home.testimonial_name }}
+        </p>
+
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="s5">
+      <h2>Join The Community</h2>
+      <p class="slogan accent comm-slogan">
+        The human mind is our fundamental resource
+      </p>
+      <form method="POST">
+        {% csrf_token %} {{ community }}
+
+        <button type="submit" class="submit btn">Submit</button>
+      </form>
+    </div>
+
+    <div class="s6">
+      <h3 class="copyright">Copyright &copy; 2020 - name</h3>
+      <h3 class="fontawesome">fontawesome Fonts</h3>
+      <ul>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'policy' %}" class="list-pad">Policy</a></li>
+        <li><a href="{% url 'disclaimer' %}" class="list-pad">Disclaimer</a></li>
+        <li><a href="" class="list-pad">FAQ</a></li>
+        <li><a href="{% url 'contact' %}" class="list-pad">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TimelineLite.min.js"
+    integrity="sha256-5HW1hilN77unDg9wwY2mmXL1G8/hBMrYOgiB+BqsxNg=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/plugins/CSSPlugin.min.js"
+    integrity="sha256-UJt5JHwfrhok9SvTqbi6rRw2ajY0ugeYsIT2pioVDJY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenLite.min.js"
+    integrity="sha256-VfpswwlYKouVmlpnJW0MszMzLm9lH2yfB6ty3d1WsB4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js"
+    integrity="sha256-hBMojZuWKocCflyaG8T19KBq9OlTlK39CTxb8AUWKhY=" crossorigin="anonymous"></script>
+  <script src="{% static 'home/app.js' %}"></script>
+  {% endblock %}
+</body>
+
+</html>

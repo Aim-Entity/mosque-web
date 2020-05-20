@@ -1,0 +1,82 @@
+{% extends 'base.htm' %}
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% block head %}
+  <title>Contact | Send A Message</title>
+  <link rel="stylesheet" href="{% static 'contact/style.css' %}">
+
+  <meta name="description" content="If you have any enquiries or want to become a speaker, then send us a message" />
+  <meta name="keywords" content="Islamic, islamic education, islamic contact, contact, islamic aid, educational " />
+  {% endblock %}
+</head>
+
+<body>
+  {% block content %}
+  <div class="container">
+    <div class="s1">
+      <h2>Send Us A Message</h2>
+      <p>Got a message or want to become a speaker? if so send us a message</p>
+    </div>
+
+    <div class="s2">
+      <form method="POST" id="form">
+        {% csrf_token %}
+        <div class="form">
+          {{ contact|crispy }}
+
+          <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+          <button>
+            <p>Send</p>
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+              y="0px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+              <path id="paper-plane-icon" d="M462,54.955L355.371,437.187l-135.92-128.842L353.388,167l-179.53,124.074L50,260.973L462,54.955z
+          M202.992,332.528v124.517l58.738-67.927L202.992,332.528z"></path>
+            </svg>
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <div class="s3">
+      <div class="location">
+        <img src="{% static 'contact/imgs/location.svg' %}" alt="Location">
+        <h3>Location</h3>
+      </div>
+
+      <div class="email">
+        <img src="{% static 'contact/imgs/email.svg' %}" alt="email">
+        <h3>Email</h3>
+      </div>
+
+      <div class="mobile">
+        <img src="{% static 'contact/imgs/mobile.svg' %}" alt="mobile">
+        <h3>Phone Number</h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="s6">
+    <h3 class="copyright">Copyright &copy; 2020 - name</h3>
+    <h3 class="fontawesome">fontawesome Fonts</h3>
+    <ul>
+      <li><a href="{% url 'about' %}">About</a></li>
+      <li><a href="{% url 'policy' %}" class="list-pad">Policy</a></li>
+      <li><a href="{% url 'disclaimer' %}" class="list-pad">Disclaimer</a></li>
+      <li><a href="" class="list-pad">FAQ</a></li>
+      <li><a href="{% url 'contact' %}" class="list-pad">Contact</a></li>
+    </ul>
+  </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="{% static 'contact/app.js' %}"></script>
+  {% endblock %}
+</body>
+
+</html>

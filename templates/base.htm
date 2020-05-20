@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% block head %}
+    <title>CHANGE ME</title>
+    {% endblock %}
+    <link rel="stylesheet" href="{% static 'base.css' %}" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,500;0,600;1,100;1,400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    {% block content %} ADD A CONTENT BLOCK {% endblock %}
+
+    <div class="base-container">
+      <nav class="navigation">
+        <!-- <a href="{% url 'home' %}"
+          ><img src="{% static 'home/imgs/logo.jpg' %}" alt="Logo" class="logo"
+        /></a> -->
+        <a href="{% url 'home' %}">
+          <div class="logo"></div>
+        </a>
+        <img
+          src="{% static 'home/imgs/hamburger.svg' %}"
+          alt="Hamburger"
+          class="hamburger"
+        />
+
+        <ul class="base-ul">
+          <li><a href="{% url 'topic' %}" class="topic">Topics</a></li>
+          <li><a href="{% url 'about' %}" class="about">About</a></li>
+          <li><a href="{% url 'speaker' %}" class="speakers">Speakers</a></li>
+          <li><a href="" class="books">Books</a></li>
+          <li><a href="{% url 'contact' %}" class="contact">Contact</a></li>
+          <li><a href="{% url 'donation' %}" class="donate">Donate</a></li>
+        </ul>
+      </nav>
+
+      {% if messages %} {% for message in messages %}
+      <div class="alert alert-{{ message.tags }}">
+        {{ message }}
+      </div>
+      {% endfor %} {% endif %}
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TimelineLite.min.js"
+      integrity="sha256-5HW1hilN77unDg9wwY2mmXL1G8/hBMrYOgiB+BqsxNg="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/plugins/CSSPlugin.min.js"
+      integrity="sha256-UJt5JHwfrhok9SvTqbi6rRw2ajY0ugeYsIT2pioVDJY="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenLite.min.js"
+      integrity="sha256-VfpswwlYKouVmlpnJW0MszMzLm9lH2yfB6ty3d1WsB4="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js"
+      integrity="sha256-hBMojZuWKocCflyaG8T19KBq9OlTlK39CTxb8AUWKhY="
+      crossorigin="anonymous"
+    ></script>
+    <script src="{% static 'base.js' %}"></script>
+  </body>
+</html>

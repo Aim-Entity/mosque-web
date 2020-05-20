@@ -1,0 +1,182 @@
+.s1 {
+  width: 100%;
+  margin-top: 115px;
+}
+
+.diclaimer-container {
+  width: 85%;
+  margin: 0 auto;
+  background: #f6f4f4;
+  border: 1px solid #c7c3c3;
+}
+
+.header {
+  margin-left: 25px;
+  margin-top: 15px;
+}
+
+.main-par {
+  width: 85%;
+  margin-left: 25px;
+  color: rgba(0, 0, 0, 0.6);
+  margin-top: 15px;
+}
+
+.secondary-par {
+  width: 85%;
+  margin-left: 25px;
+  color: rgba(0, 0, 0, 0.6);
+  margin-top: 5px;
+}
+
+.sub-title {
+  width: 85%;
+  margin-left: 25px;
+  font-size: 21px;
+  margin-top: 15px;
+}
+
+.last {
+  margin-bottom: 15px;
+}
+
+.s6 {
+  width: 100%;
+  position: relative;
+  top: 100px;
+  height: 183px;
+  padding-top: 2px;
+
+  background: #2c2c2c;
+}
+
+.s6 ul li a {
+  font-size: 14px;
+  line-height: 21px;
+
+  color: #ffffff;
+}
+
+.s6 ul li {
+  display: inline-block;
+  /* padding-left: 25px; */
+}
+
+.s6 ul {
+  width: 60%;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.fontawesome {
+  margin-top: 20px;
+  color: #fff;
+  width: 100%;
+  text-align: center;
+}
+
+.copyright {
+  color: #fff;
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.list-pad {
+  padding-left: 15px;
+}
+
+@media screen and (min-width: 950px) {
+  .s1 {
+    width: 100%;
+    margin-top: 115px;
+  }
+
+  .diclaimer-container {
+    width: 85%;
+    margin: 0 auto;
+    background: #f6f4f4;
+    border: 1px solid #c7c3c3;
+  }
+
+  .header {
+    margin-left: 45px;
+    margin-top: 45px;
+    font-size: 48px;
+  }
+
+  .main-par {
+    width: 85%;
+    margin-left: 45px;
+    color: rgba(0, 0, 0, 0.6);
+    margin-top: 45px;
+    font-size: 24px;
+  }
+
+  .secondary-par {
+    width: 85%;
+    margin-left: 45px;
+    color: rgba(0, 0, 0, 0.6);
+    margin-top: 5px;
+    font-size: 24px;
+  }
+
+  .sub-title {
+    width: 85%;
+    margin-left: 45px;
+    margin-top: 45px;
+    font-size: 36px;
+  }
+
+  .last {
+    margin-bottom: 45px;
+  }
+
+  .s6 {
+    width: 100%;
+    position: relative;
+    top: 250px;
+    height: 183px;
+    padding-top: 2px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: #2c2c2c;
+  }
+
+  .s6 ul li a {
+    font-size: 16px;
+    line-height: 21px;
+
+    color: #ffffff;
+  }
+
+  .s6 ul {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 30px;
+  }
+
+  .fontawesome {
+    margin-top: 20px;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+  }
+
+  .copyright {
+    color: #fff;
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+  }
+
+  .list-pad {
+    padding-left: 15px;
+  }
+}

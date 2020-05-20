@@ -1,0 +1,99 @@
+{% extends 'base.htm' %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  {% block head %}
+  <title>Speakers | Search For Well-Known Speakers</title>
+  <link rel="stylesheet" href="{% static 'speaker/style.css' %}" />
+
+  <meta name="description"
+    content="Here we have many speakers who are well known or upcoming. Listen to them and show your support by following their social media." />
+  <meta name="keywords"
+    content="Islamic, islamic education, islamic speakers, speakers, islamic aid, educational, islamic channel" />
+  {% endblock %}
+</head>
+
+<body>
+  {% block content %}
+  <div class="containers">
+    <div class="s1">
+      <h2>Browse Through Our Podcasts</h2>
+      <p>Visit speakers and go through new content.</p>
+    </div>
+    <div class="s2">
+      <div class="s2-container">
+        {% for speaker in speakers %}
+        <div class="item">
+          <div class="back">
+            <a href="{% url 'speaker-detail' speaker.slug%} "><img src="{{ speaker.profile.url }}"
+                alt="Profile Picture" /></a>
+          </div>
+
+          <h5 class="name">{{ speaker.name|title }}</h5>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="pagination">
+        {% if is_paginated %} {% if page_obj.has_previous %}
+        <div class="border">
+          <a class="btn btn-outline-info mb-4" href="?page=1">
+            << </a>
+        </div>
+        <div class="border">
+          <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}">
+            < </a>
+        </div>
+        {% endif %}
+        {% for num in page_obj.paginator.page_range %}
+        {% if page_obj.number == num %}
+        <div class="border current">
+          <a class="btn btn-info mb-4" href="?page={{ num }}">{{ num }}</a>
+        </div>
+        {% elif num > page_obj.number|add:'-3' and num <
+              page_obj.number|add:'3' %}
+        <div class="border">
+          <a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
+        </div>
+        {% endif %}
+        {% endfor %}
+        {% if page_obj.has_next %}
+        <div class="border">
+          <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">>
+          </a>
+        </div>
+        <div class="border">
+          <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">>>
+          </a>
+        </div>
+        {% endif %} {% endif %}
+      </div>
+    </div>
+
+    <div class="s6">
+      <h3 class="copyright">Copyright &copy; 2020 - name</h3>
+      <h3 class="fontawesome">fontawesome Fonts</h3>
+      <ul>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'policy' %}" class="list-pad">Policy</a></li>
+        <li><a href="{% url 'disclaimer' %}" class="list-pad">Disclaimer</a></li>
+        <li><a href="" class="list-pad">FAQ</a></li>
+        <li><a href="{% url 'contact' %}" class="list-pad">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TimelineLite.min.js"
+    integrity="sha256-5HW1hilN77unDg9wwY2mmXL1G8/hBMrYOgiB+BqsxNg=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/plugins/CSSPlugin.min.js"
+    integrity="sha256-UJt5JHwfrhok9SvTqbi6rRw2ajY0ugeYsIT2pioVDJY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenLite.min.js"
+    integrity="sha256-VfpswwlYKouVmlpnJW0MszMzLm9lH2yfB6ty3d1WsB4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js"
+    integrity="sha256-hBMojZuWKocCflyaG8T19KBq9OlTlK39CTxb8AUWKhY=" crossorigin="anonymous"></script>
+  <script src="{% static 'speaker/app.js' %}"></script>
+  {% endblock %}
+</body>
+
+</html>

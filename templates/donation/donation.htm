@@ -1,0 +1,61 @@
+{% extends 'base.htm' %}
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% block head %}
+  <title>Donate | Donate To Show Your Support</title>
+  <link rel="stylesheet" href="{% static 'donation/style.css' %}">
+
+  <meta name="description" content="donate to us to show your support and give money to the poor." />
+  <meta name="keywords"
+    content="Islamic, islamic education, islamic charity, charity, islamic aid, educational, charity" />
+  {% endblock %}
+</head>
+
+<body>
+  {% block content %}
+  <div class="container">
+    <div class="s1">
+      <h2>Donate To Us</h2>
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed, quam accusamus! Cumque dicta cum consequatur
+        quidem.</p>
+    </div>
+
+    <div class="s2">
+      <div class="donate1">
+        <h2 class="title">Donate £5</h2>
+
+        <p class="par">Through this donation we’re are giving 100% of the money to {Charity name}.</p>
+        <button class="donate-btn btn1 btn">Donate</button>
+      </div>
+
+      <div class="donate2">
+        <h2 class="title">Donate £15</h2>
+
+        <p class="par">Through this donation we’re are giving 20% of the money to {Charity name}. The rest will be
+          money to support our projects and future lectures</p>
+        <button class="donate-btn btn">Donate</button>
+      </div>
+    </div>
+
+    <div class="s6">
+      <h3 class="copyright">Copyright &copy; 2020 - name</h3>
+      <h3 class="fontawesome">fontawesome Fonts</h3>
+      <ul>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'policy' %}" class="list-pad">Policy</a></li>
+        <li><a href="{% url 'disclaimer' %}" class="list-pad">Disclaimer</a></li>
+        <li><a href="" class="list-pad">FAQ</a></li>
+        <li><a href="{% url 'contact' %}" class="list-pad">Contact</a></li>
+      </ul>
+    </div>
+    <script src="{% static 'donation/app.js' %}"></script>
+    {% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+!{% extends 'base.htm' %}
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% block head %}
+  <title>Disclaimer | Read Through For More Info</title>
+  <link rel="stylesheet" href="{% static 'disclaimer/style.css' %}">
+
+  <meta name="description" content="Make sure to read our disclaimer" />
+  <meta name="keywords"
+    content="Islamic, islamic education, islamic disclaimer, disclaimer, islamic aid, educational, disclaimer" />
+  {% endblock %}
+</head>
+
+<body>
+  {% block content %}
+  <div class="container">
+    <div class="s1">
+      <div class="diclaimer-container">
+        <h1 class="header">Disclaimer</h1>
+        <p class="bullet">- Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt eos itaque saepe
+          quibusdam, accusamus earum soluta dignissimos.</p>
+        <p class="bullet">- Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt eos itaque saepe
+          quibusdam, accusamus earum soluta dignissimos.</p>
+        <p class="bullet last">- Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt eos itaque saepe
+          quibusdam, accusamus earum soluta dignissimos.</p>
+      </div>
+    </div>
+
+    <div class="s6">
+      <h3 class="copyright">Copyright &copy; 2020 - name</h3>
+      <h3 class="fontawesome">fontawesome Fonts</h3>
+      <ul>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'policy' %}" class="list-pad">Policy</a></li>
+        <li><a href="{% url 'disclaimer' %}" class="list-pad">Disclaimer</a></li>
+        <li><a href="" class="list-pad">FAQ</a></li>
+        <li><a href="{% url 'contact' %}" class="list-pad">Contact</a></li>
+      </ul>
+    </div>
+    <script src="{% static 'disclaimer/app.js' %}"></script>
+    {% endblock %}
+</body>
+
+</html>
